@@ -31,7 +31,7 @@ jobs:
           # exit code when alerts were found
           exit-code: 1 # optional, default is 0
           # alert level (INFO, WARN, FATAL)
-          exit-level: WARN # optional, default is WARN
+          exit-level: FATAL # optional, default is WARN
           
      - name: PWD
        run: pwd
