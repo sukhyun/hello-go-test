@@ -22,7 +22,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-     - name: Runs dockle
       # You may pin to the exact commit or the version.
       # uses: hands-lab/dockle-action@083a964bbcffa92bdd5f85fe3672da5d81ae1a57
      - uses: hands-lab/dockle-action@v1
