@@ -22,10 +22,20 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.18
+        
+    - name: Build
+      run: go build -v .
+    
       # You may pin to the exact commit or the version.
       # uses: hands-lab/dockle-action@083a964bbcffa92bdd5f85fe3672da5d81ae1a57
-     - uses: hands-lab/dockle-action@v1
-       with:
+    - uses: hands-lab/dockle-action@v1
+      with:
           # image name
           image: tnrgus/hello-go-test:latest
           # exit code when alerts were found
@@ -33,9 +43,3 @@ jobs:
           # alert level (INFO, WARN, FATAL)
           exit-level: FATAL # optional, default is WARN
           
-     - name: PWD
-       run: pwd
-      
-      
-
-      
