@@ -14,3 +14,36 @@ jobs:
       # specify any bash command here prefixed with `run: `
       - run: go mod download
       - run: go build
+      
+ first-job:
+    docker:
+      - image: ubuntu
+    steps:
+      - run: echo "this is the first job"
+  second-job:
+    docker:
+      - image: ubuntu
+    steps:
+      - run: echo "this is the second job"
+  third-job:
+    docker:
+      - image: ubuntu
+    steps:
+      - run: echo "this is the third job"
+      
+workflows:
+  first-workflow:
+    jobs:
+      - first-job
+      - second-job:
+          filters:
+            branches:
+              only:
+                - /.*special/
+      - third-job:
+          requires:
+            - first-job
+            - second-job
+  second-workflow:
+    jobs:
+      - build
