@@ -15,7 +15,7 @@ jobs:
       - run: go mod download
       - run: go build      
       
- first-job:
+  first-job:
     docker:
       - image: ubuntu
     steps:
